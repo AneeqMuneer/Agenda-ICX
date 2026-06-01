@@ -1,0 +1,104 @@
+:root {
+  --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Single app background + elevated surfaces for controls only */
+  --bg: #262624;
+  --bg-app: var(--bg);
+  --bg-shell: var(--bg);
+  --bg-main: var(--bg);
+  --bg-elevated: #323230;
+  --bg-input: #353533;
+  --bg-user-row: rgba(255, 255, 255, 0.04);
+  --bg-bot-row: transparent;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #ececec;
+  --text-secondary: #b4b4b4;
+  --text-tertiary: #7a7a7a;
+  --text-inverse: #ffffff;
+
+  --accent: #c15f3c;
+  --accent-hover: #a84f30;
+  --accent-soft: rgba(193, 95, 60, 0.15);
+  --accent-ring: rgba(193, 95, 60, 0.25);
+
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.12);
+  --danger: #f87171;
+  --danger-soft: rgba(248, 113, 113, 0.12);
+  --warning: #fbbf24;
+  --warning-soft: rgba(251, 191, 36, 0.12);
+
+  --thread-max: 42rem;
+  --header-h: 56px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text-primary);
+  background: var(--bg-app);
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

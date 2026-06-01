@@ -1,0 +1,24 @@
+a. Agent can help to perform various tasks.
+b. Agents have the following five components:
+    1. Intents: This identifies what kind of message has the user sent and what kind of response we need to send to them.
+    2. Entities: These are specific variables that we can extract from the user's query. They can be of three types:
+        i. System Entities: Already part of the system.
+        ii. Custom Entities: Can be made. Requires definition of how to identify them.
+        iii. Combined Entities: Can be a combination of multiple system, custom, or both entities. This can be done by using multiple entities in the intent to identify multiple items from the user query. Combined entities can be defined as an object by adding a variable name after the entity name in the intent.
+
+
+2. Readme
+    a. Overview of the project
+    b. Setup instructions
+    c. How to run
+3. Record video
+    a. Architecture of my project
+    b. Architecture diagram
+    c. Communication between the three
+    d. Demo
+4. Submission
+    a. Upload to github
+    b. video
+    c. Bot zip
+    d. Repo link
+    e. Drive public shared link
