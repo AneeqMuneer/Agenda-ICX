@@ -131,6 +131,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/AneeqMuneer/Agenda-ICX.git
+cd Agenda-ICX
 ```
 
 ### Step 2: Backend Setup
@@ -220,6 +221,7 @@ This tells the frontend where to connect to the WebSocket server.
 #### Terminal 1 - Start Backend Server
 
 ```bash
+cd Agenda-ICX
 cd Backend
 npm run dev
 ```
@@ -232,6 +234,7 @@ Server is running on http://localhost:4000/
 #### Terminal 2 - Start Frontend Dev Server
 
 ```bash
+cd Agenda-ICX
 cd Frontend
 npm run dev
 ```
@@ -249,8 +252,10 @@ Expected output:
 #### Build Frontend
 
 ```bash
+cd Agenda-ICX
 cd Frontend
 npm run build
+npm run preview
 ```
 
 This creates a `dist` folder with optimized production files.
@@ -258,6 +263,7 @@ This creates a `dist` folder with optimized production files.
 #### Start Backend in Production
 
 ```bash
+cd Agenda-ICX
 cd Backend
 npm start
 ```
