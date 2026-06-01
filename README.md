@@ -4,7 +4,7 @@ A real-time chatbot application built with **Google DialogFlow ES**, **React**, 
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Architecture](#architecture)
@@ -14,11 +14,11 @@ A real-time chatbot application built with **Google DialogFlow ES**, **React**, 
 - [Installation & Setup](#installation--setup)
 - [Configuration](#configuration)
 - [Running the Application](#running-the-application)
-- [Environment Variables](#environment-variables)
+- [Environment Variables For Production](#environment-variables-for-production)
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 **Agenda** is an intelligent event scheduling assistant that leverages Google's DialogFlow ES to understand user intents and extract entities from natural language queries. Users can:
 
@@ -36,7 +36,7 @@ The application demonstrates a full-stack implementation with:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The application uses a three-tier architecture:
 
@@ -96,7 +96,7 @@ The application uses a three-tier architecture:
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 ### Frontend
 - **React 19.2.6** - UI library
@@ -115,7 +115,7 @@ The application uses a three-tier architecture:
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -123,71 +123,14 @@ Before you begin, ensure you have the following installed:
 - **npm** or **yarn** - Comes with Node.js
 - **Git** - For version control
 
-### Google DialogFlow Setup
-
-You'll need a Google Cloud project with DialogFlow ES enabled:
-
-1. Create a [Google Cloud Project](https://console.cloud.google.com/)
-2. Enable the **DialogFlow API**
-3. Create a **Service Account** with DialogFlow Client role
-4. Download the service account JSON credentials file
-5. Place it in `Backend/config/serviceAccount.json`
-
 ---
 
-## 📁 Project Structure
-
-```
-Backend Learning/
-├── README.md                          # Project documentation
-│
-├── Backend/                           # Node.js Express server
-│   ├── app.js                        # Express app configuration
-│   ├── server.js                     # Server entry point
-│   ├── socket.js                     # Socket.io initialization & handlers
-│   ├── package.json                  # Backend dependencies
-│   ├── config/
-│   │   ├── config.env                # Environment variables
-│   │   └── serviceAccount.json       # Google DialogFlow credentials
-│   └── Websocket/
-│       ├── dialogflowSocket.js       # DialogFlow intent detection logic
-│       └── streamReply.js            # Response streaming handler
-│
-├── Frontend/                          # React + Vite application
-│   ├── package.json                  # Frontend dependencies
-│   ├── vite.config.js                # Vite build config
-│   ├── eslint.config.js              # ESLint configuration
-│   ├── index.html                    # HTML entry point
-│   └── src/
-│       ├── main.jsx                  # React app entry point
-│       ├── App.jsx                   # Main app component
-│       ├── index.css                 # Global styles
-│       ├── Components/
-│       │   ├── ChatWindow.jsx        # Chat message display
-│       │   ├── ChatInput.jsx         # Message input component
-│       │   └── MessageBubble.jsx     # Individual message bubble
-│       ├── Hooks/
-│       │   └── useSocket.js          # Socket.io connection hook
-│       ├── Styles/
-│       │   ├── App.css               # App component styles
-│       │   ├── ChatWindow.css        # Chat window styles
-│       │   ├── ChatInput.css         # Input component styles
-│       │   └── MessageBubble.css     # Message bubble styles
-│       └── utils/
-│           └── formatMessage.js      # Message formatting utilities
-│
-└── DialogFlow ES.txt                 # DialogFlow concepts & todo list
-```
-
----
-
-## 🚀 Installation & Setup
+## Installation & Setup
 
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd "Backend Learning/Interact CX Test Task"
+git clone https://github.com/AneeqMuneer/Agenda-ICX.git
 ```
 
 ### Step 2: Backend Setup
@@ -206,23 +149,16 @@ npm install
 
 #### 2.3 Configure Environment Variables
 
-Update `Backend/config/config.env` with your settings:
-
-```env
-BACKEND_PORT=4000
-FRONTEND_URL=http://localhost:5173
-DIALOGFLOW_PROJECT_ID=your-dialogflow-project-id
-GOOGLE_APPLICATION_CREDENTIALS=./config/serviceAccount.json
-```
+Update `Backend/config/config.env` with your settings by following the steps mentioned in said file.
 
 #### 2.4 Add Google Credentials
 
-Place your downloaded service account JSON file at:
+Place your downloaded service account JSON file at with name `serviceAccount.json`:
 ```
-Backend/config/serviceAccount.json
+Backend/config/
 ```
 
-**Security Note**: Never commit credentials to version control. Add to `.gitignore`:
+**Security Note**: Never commit credentials to version control. Add to `.gitignore` (Already added):
 ```
 Backend/config/serviceAccount.json
 Backend/config/config.env
@@ -244,7 +180,7 @@ npm install
 
 #### 3.3 Configure Environment Variables
 
-Create a `.env.local` file in the Frontend directory:
+Create a `.env` file in the Frontend directory (Already set up):
 
 ```env
 VITE_BACKEND_URL=http://localhost:4000
@@ -254,7 +190,7 @@ This tells the frontend where to connect to the WebSocket server.
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Backend Configuration
 
@@ -264,7 +200,7 @@ This tells the frontend where to connect to the WebSocket server.
 |----------|-------------|---------|
 | `BACKEND_PORT` | Port where backend runs | `4000` |
 | `FRONTEND_URL` | Frontend URL for CORS | `http://localhost:5173` |
-| `DIALOGFLOW_PROJECT_ID` | Your DialogFlow project ID | `calendar-agent-icx-upvx` |
+| `DIALOGFLOW_PROJECT_ID` | Your DialogFlow project ID | `your-dialogflow-project-id` |
 | `GOOGLE_APPLICATION_CREDENTIALS` | Path to service account credentials | `./config/serviceAccount.json` |
 
 ### Frontend Configuration
@@ -277,7 +213,7 @@ This tells the frontend where to connect to the WebSocket server.
 
 ---
 
-## ▶️ Running the Application
+## Running the Application
 
 ### Option 1: Running Locally (Development)
 
@@ -337,30 +273,7 @@ You should see the Agenda chat interface with a connection status indicator.
 
 ---
 
-## 🔧 Environment Variables
-
-### Backend Environment Variables
-
-```env
-# Server Configuration
-BACKEND_PORT=4000
-
-# Frontend URL (for CORS policy)
-FRONTEND_URL=http://localhost:5173
-
-# Google DialogFlow Configuration
-DIALOGFLOW_PROJECT_ID=your-project-id
-GOOGLE_APPLICATION_CREDENTIALS=./config/serviceAccount.json
-```
-
-### Frontend Environment Variables
-
-```env
-# WebSocket Connection URL
-VITE_BACKEND_URL=http://localhost:4000
-```
-
-### For Production
+## Environment Variables For Production
 
 Update FRONTEND_URL and VITE_BACKEND_URL to your production domain:
 
@@ -374,50 +287,7 @@ VITE_BACKEND_URL=https://yourdomain.com
 
 ---
 
-## 📊 Key Features
-
-- **Real-time Chat Interface** - Instant message delivery via WebSockets
-- **AI-Powered Responses** - Google DialogFlow ES for natural language understanding
-- **Responsive Design** - Mobile-friendly chat UI
-- **Connection Status Indicator** - Shows live server connection status
-- **Error Handling** - Comprehensive error messages for debugging
-- **Streaming Responses** - Bot responses stream character-by-character for better UX
-- **Session Management** - Each user gets a unique session ID for context
-
----
-
-## 🐛 Troubleshooting
-
-### Backend won't start
-- Check that port 4000 is available: `netstat -ano | findstr :4000` (Windows)
-- Verify environment variables in `config.env`
-- Check Google credentials file path and permissions
-
-### Frontend can't connect to backend
-- Ensure backend is running on port 4000
-- Check `VITE_BACKEND_URL` in `.env.local`
-- Verify CORS settings match your frontend URL
-- Check browser console for connection errors
-
-### DialogFlow returns empty response
-- Verify DialogFlow project ID is correct
-- Check that intents have response text configured in DialogFlow console
-- Ensure service account has proper permissions
-
-### Port already in use
-```bash
-# Windows - Find and kill process on port
-netstat -ano | findstr :4000
-taskkill /PID <PID> /F
-
-# Mac/Linux
-lsof -i :4000
-kill -9 <PID>
-```
-
----
-
-## 📝 Available Scripts
+## Available Scripts
 
 ### Backend
 
@@ -437,44 +307,6 @@ npm run lint    # Run ESLint
 
 ---
 
-## 🤝 Contributing
-
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Commit changes: `git commit -m 'Add your feature'`
-3. Push to branch: `git push origin feature/your-feature`
-4. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the ISC License - see the LICENSE file for details.
-
----
-
-## 👤 Author
+## Author
 
 **Aneeq Muneer**
-
----
-
-## 🎓 Learning Resources
-
-- [Google DialogFlow ES Documentation](https://cloud.google.com/dialogflow/es/docs)
-- [Socket.io Documentation](https://socket.io/docs/)
-- [Express.js Guide](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Vite Documentation](https://vitejs.dev/)
-
----
-
-## 📞 Support
-
-For issues, questions, or suggestions:
-- Check existing issues in the repository
-- Create a new issue with detailed description
-- Include error messages and steps to reproduce
-
----
-
-**Last Updated**: June 2026
